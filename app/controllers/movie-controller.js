@@ -20,7 +20,7 @@ exports.one = (req, res) => {
 
 
 
-//CRUD
+//BASIC CRUD
 exports.store = (req, res) => {
     const movie = req.body;
     Movie.create(movie, (err, result) => {
