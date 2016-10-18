@@ -1,22 +1,36 @@
-'use strict';
-const express = require('express');
-const Router  = express.Router();
-const MovieController = require('../app/controllers/movie-controller');
+"use strict";
 
-Router.get('/', (req, res) => {
-    res.json({'success': 'true', 'msg' : 'Home Api'});
-})
+const UserController = require('../app/controllers/user-controller');
 
-Router.get('/movies', MovieController.index);
-Router.get('/movies/:id', MovieController.one);
-Router.post('/movies/store', MovieController.store);
-Router.put('/movies/:id/update', MovieController.update);
-Router.delete('/movies/:id/delete', MovieController.remove);
-Router.delete('/movies/:id/delete/:cod', MovieController.removeEpisode);
-Router.put('/movies/:id/cs/:cod', MovieController.changeStatus);
-Router.put('/movies/:id/add', MovieController.addEpisode);
-Router.put('/movies/:id/edit/:cod', MovieController.editEpisode);
+//const AuthRequest = require('./middleware/auth-middleware');
 
 
+module.exports = (app, config, passport) => {
 
-module.exports = Router;    
+    //const rp = passport.authenticate('jwt', { session: false});
+    //const rl = AuthRequest.requireLogin;
+
+
+    app.get('/', (req, res) => {
+        res.sendFile(config.ROOT + '/app/views/index.html')
+    });
+
+    /*USER API*/
+    app.get('/api/users', UserController.all);
+    app.get('/api/users/p', UserController.show);
+    app.get('/api/users/:userId', UserController.getOne);
+    
+    app.post('/api/users/register', UserController.register);
+    
+    
+    /*PROFILE API */
+    
+  /*
+   app.get('/api/users', UserController.index);
+   
+    app.get('/api/users/:userId', UserController.show);
+    app.put('/api/users/:userId/update',  UserController.update);
+    app.delete('/api/users/:userId/delete', UserController.delete);
+    app.post('/api/users/auth', UserController.auth);*/
+
+};
