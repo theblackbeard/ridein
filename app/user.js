@@ -5,12 +5,12 @@ const bcrypt = require('bcrypt-nodejs');
 
 const UserSchema = new Schema({
     rgm: {
-      type: Number,
+      type: String,
       required: true,
       trim: true  
     },
     cpf:{
-      type: Number,
+      type: String,
       required: true,
       trim: true 
     },
@@ -27,13 +27,17 @@ const UserSchema = new Schema({
         type: String,
         required: true,
     },
-    address: {
-      type: Schema.Types.Mixed,
-      required: true  
-    },
+    address: [
+      {
+        street : {type: String},
+        city: {type: String},
+        state: {type: String},
+        zip: {type: String}
+      }
+    ],
     course:{
-      name: { type: String, required: false},
-      year: { type: Number, required: false}  
+      type: Schema.Types.Mixed,
+      required: true; 
     },  
     photo: {
         type: Schema.Types.Mixed,
@@ -43,18 +47,22 @@ const UserSchema = new Schema({
        type: Schema.Types.Mixed,
         required: true 
     },
-    registry:{
-       rideTake: {type: Number},
-       rideGet: {type: Number}  
-    },
+    registry:[
+      {
+        rideTake: {type: Number},
+        rideGet: {type: Number}  
+      }
+
+    ],
     
     level: {
       type: Number,
       required: false,
       default:4
     },
+
     active: {
-      type: Boolean,
+      type: Number,
       required: false,
       default: 2 //1 ok - 2 pedding 3 deny  
     },

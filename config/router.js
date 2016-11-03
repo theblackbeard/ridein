@@ -12,7 +12,7 @@ module.exports = (app, config, passport) => {
 
 
     app.get('/', (req, res) => {
-        res.sendFile(config.ROOT + '/app/views/index.html')
+        res.json({"success" : true})
     });
 
     /*USER API*/

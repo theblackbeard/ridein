@@ -4,5 +4,6 @@ module.exports = {
     'PORTSERVER': process.env.OPENSHIFT_NODEJS_PORT || 8001,
     'MONGO': process.env.MONGODB_URL ||'mongodb://127.0.0.1:27017/',
     'MONGODB': 'movies',
-    'ROOT' : path.join(__dirname, '..')
+    'ROOT' : path.join(__dirname, '..'),
+    'SECRET': 'thismyappofnodeandangularionicsystem'
 }

@@ -11,7 +11,6 @@ require('./config/database')(config);
 require('./config/passport')(passport, config);
 
 app.use(compression());
-app.use(express.static(config.ROOT + '/app/views'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
@@ -37,7 +36,7 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 });
-cd
+
 app.listen(config.PORTSERVER, config.IPSERVER, () => {
     console.log('Server Running on ' , config.IPSERVER + ': ' + config.PORTSERVER);
 });
