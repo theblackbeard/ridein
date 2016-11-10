@@ -27,25 +27,26 @@ const UserSchema = new Schema({
         type: String,
         required: true,
     },
-    address: [
+    address: 
       {
         street : {type: String},
         city: {type: String},
         state: {type: String},
         zip: {type: String}
       }
-    ],
+    ,
     course:{
-      type: Schema.Types.Mixed,
-      required: true; 
+        name: {type: String},
+        year: {type: String} 
     },  
     photo: {
-        type: Schema.Types.Mixed,
+        type: String,
         required: false
     },
     phones:{
-       type: Schema.Types.Mixed,
-        required: true 
+        home: {type: String},
+        mobile: {type: String},
+        other: {type: String }
     },
     registry:[
       {
