@@ -7,12 +7,12 @@ const UserSchema = new Schema({
     rgm: {
       type: String,
       required: true,
-      trim: true  
+      trim: true
     },
     cpf:{
       type: String,
       required: true,
-      trim: true 
+      trim: true
     },
     name: {
         type: String,
@@ -27,7 +27,7 @@ const UserSchema = new Schema({
         type: String,
         required: true,
     },
-    address: 
+    address:
       {
         street : {type: String},
         city: {type: String},
@@ -37,8 +37,8 @@ const UserSchema = new Schema({
     ,
     course:{
         name: {type: String},
-        year: {type: String} 
-    },  
+        year: {type: String}
+    },
     photo: {
         type: String,
         required: false
@@ -48,14 +48,14 @@ const UserSchema = new Schema({
         mobile: {type: String},
         other: {type: String }
     },
-    registry:[
+    registry:
       {
         rideTake: {type: Number},
-        rideGet: {type: Number}  
+        rideGet: {type: Number}
       }
 
-    ],
-    
+    ,
+
     level: {
       type: Number,
       required: false,
@@ -65,9 +65,9 @@ const UserSchema = new Schema({
     active: {
       type: Number,
       required: false,
-      default: 2 //1 ok - 2 pedding 3 deny  
+      default: 2 //1 ok - 2 pedding 3 deny
     },
-    
+
     feedback: [{
         author: {type: Schema.ObjectId, ref: 'User'},
         body: {type: String, default: ''},
@@ -76,14 +76,14 @@ const UserSchema = new Schema({
     star:{
         type: Number,
         required: false,
-        default: 0   
-    },  
-      
+        default: 0
+    },
+
     created_at: {
         type: Date,
         default: Date.now
     },
-    
+
     updated_at: {
         type: Date
     }
